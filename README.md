@@ -80,13 +80,13 @@ Schema::table('users', function (Blueprint $table) {
 En `.env` agrega:
 
 ```
-FILAMENT_FILESYSTEM_DISK="public_storage"
+FILESYSTEM_DISK="public"
 ```
 
 En `config/filesystems.php`, en `disks` agrega:
 
 ```php
-'public_storage' => [
+'public' => [
     'driver' => 'local',
     'root' => base_path('public/storage_public'),
     // 'root' => base_path('../storage_public'), // Usar al subir a InfinityFree
