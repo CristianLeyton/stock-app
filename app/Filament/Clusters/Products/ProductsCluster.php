@@ -12,7 +12,7 @@ use UnitEnum;
 
 class ProductsCluster extends Cluster
 {
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSquares2x2;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedArchiveBox;
     protected static ?SubNavigationPosition $subNavigationPosition = SubNavigationPosition::Top;
 
     protected static ?string $clusterBreadcrumb = 'Productos';

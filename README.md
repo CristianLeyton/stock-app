@@ -115,3 +115,50 @@ Esto permite bloquear acciones por defecto y gestionar permisos.
 ---
 
 ¡Listo! Con estos pasos tienes un panel de administración básico para gestionar usuarios y roles en Laravel con Filament
+
+
+## Configurar ruta a IP local en tu pc, compartiendo con laragon
+
+🔹 Paso 1: Fijar la IP de tu PC en la red local
+
+Primero asegurate de que tu PC con Laragon tenga una IP fija en tu red (por ejemplo 192.168.0.100).
+
+Si no la fijás, puede cambiar cuando reiniciás el router y dejar de funcionar.
+
+En Windows, podés hacerlo desde Configuración de red o, mejor aún, desde la configuración del router (reservando la IP por dirección MAC).
+
+🔹 Paso 2: Configurar el DNS en tu router
+
+La mayoría de los routers permiten definir entradas de DNS locales.
+
+Entrá al panel de tu router (normalmente en http://192.168.0.1 o http://192.168.1.1).
+
+Buscá la sección de LAN / DHCP / DNS estático / Hostname mapping (el nombre cambia según el modelo).
+
+Agregá una regla que diga:
+
+Host: stock-app.me
+IP:   192.168.0.100
+
+
+Guardá los cambios y reiniciá el router si es necesario.
+
+🔹 Paso 3: Probar en los dispositivos
+
+En tu PC, celular o tablet conectado al WiFi del mismo router, entrá a:
+
+https://stock-app.me
+
+
+Si todo está bien configurado, debería resolver a tu PC (192.168.0.100) y mostrar la app con imágenes funcionando.
+
+🔹 Paso 4 (Opcional): HTTPS real
+
+Si querés que también funcione con HTTPS válido (candadito verde) en los celulares, tenés dos caminos:
+
+Generar un certificado SSL válido para stock-app.me y usarlo en Laragon (más complicado porque stock-app.me no es un dominio público real).
+
+O usar directamente el protocolo http://stock-app.me
+ en tu red local (más simple y suficiente para pruebas internas).
+
+✅ Con esto lográs que todos tus dispositivos usen la misma URL amigable stock-app.me, sin andar configurando cada celular manualmente.
